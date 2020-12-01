@@ -32,14 +32,37 @@ else
             }
         </tbody>
     </table>
+
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Temp. (C)</th>
+                <th>Temp. (F)</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @*@foreach (var diamond in diamonds)
+            {
+                <tr>
+                    <td>@diamond.x</td>
+                </tr>
+            }*@
+        </tbody>
+    </table>
 }
 
 @code {
     private WeatherForecast[] forecasts;
+    private diamnod[] diamonds;
 
     protected override async Task OnInitializedAsync()
     {
         forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+      //  diamonds = (await Http.GetFromJsonAsync<diamnod[]>("sample-data/diamonds_dataset.json")).Take(10).ToArray();
     }
 
     public class WeatherForecast
@@ -51,5 +74,11 @@ else
         public string Summary { get; set; }
 
         public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    }
+
+    public class diamnod
+    {
+        public double x { get; set; }
+
     }
 }

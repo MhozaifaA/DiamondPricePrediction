@@ -1,0 +1,33 @@
+﻿@page "/diamonds"
+
+@using System.Collections.ObjectModel;
+@using DiamondPricePrediction.Model;
+@inject HttpClient Http
+
+
+<StickyTool OnClicker="()=>ActionDiamond.Modal.Open()" />
+
+@if (DiamondList.Count ==0)
+{
+    <Spaner/>
+}
+
+<div class="row">
+    <Virtualize Context="diamond" Items="@DiamondList">
+        <DiamondCard @key="diamond" Diamond="diamond"></DiamondCard>
+    </Virtualize>
+</div>
+
+
+<ActionDiamondsModal @ref="ActionDiamond" />
+
+@code {
+    public ActionDiamondsModal ActionDiamond { get; set; }
+
+    public Collection<Diamond> DiamondList { get; set; } = new Collection<Diamond>();
+
+    protected async override Task OnInitializedAsync()
+    {
+        // DiamondList = await Http.GetFromJsonAsync<Collection<Diamond>>("sample-data/diamonds_dataset.json");
+    }
+}
