@@ -54,15 +54,21 @@ namespace DiamondPricePrediction.Util
         public static double PriceAbsolute => (18823 - 326) / 100d;
 
 
-        public static double TotalWeight => 1 / ((XWeight + 
-            YWeight 
-            + ZWeight 
-            + CutWeight 
-            + ColorWeight 
-            + CaratWeight 
-            + CaratWeight 
-            + DepthWeight 
-            + TableWeight - PriceWeight) * 1.0);
+        //public static double TotalWeight => 1 / 37d;
+
+
+        public static double TotalWeight => 1 / (
+            ( XWeight 
+             + YWeight
+             + ZWeight
+             + CutWeight
+             + ColorWeight
+             + CaratWeight
+             + ClarityWeight
+             + DepthWeight
+             + TableWeight
+             //+PriceWeight //  hide price
+            ) * 1.0);
 
 
         public static double ToPercent(this double d)
