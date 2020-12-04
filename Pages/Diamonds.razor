@@ -51,14 +51,14 @@
 
         DiamondCBR cbr = new DiamondCBR(diamond, DiamondList);
         Diamond myDiamond;
-        Diamond sim;
-        var similarity = cbr.Result(out myDiamond, out sim);
+        Diamond simDiamond;
+        var similarity = cbr.Result(out myDiamond, out simDiamond);
 
         MyDiamond = myDiamond.ToString();
-        Sim = sim.ToString();
+        Sim = simDiamond.ToString();
         Similarity = similarity.ToString();
         Console.WriteLine("my :" + myDiamond);
-        Console.WriteLine("sim :" + sim);
+        Console.WriteLine("sim :" + simDiamond);
         Console.WriteLine("similaraty :" + similarity);
 
         Add(diamond);

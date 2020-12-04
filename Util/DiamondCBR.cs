@@ -23,7 +23,7 @@ namespace DiamondPricePrediction.Util
         public double Result(out Diamond diamond , out Diamond sim)
         {
           
-            (double max , Diamond diamond) max = (-1 ,new Diamond());
+            (double similarity , Diamond diamond) max = (-1 ,new Diamond());
             foreach (var item in diamonds)
             {
               var  _max= DiamondExtenssion.TotalWeight*(
@@ -46,7 +46,7 @@ namespace DiamondPricePrediction.Util
             diamond = this.diamond;
             sim = max.diamond;
 
-            return max.max;
+            return max.similarity;
         }
 
 
